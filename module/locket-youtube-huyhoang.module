@@ -1,0 +1,43 @@
+#!name=Locket Custom + YouTube - Huy Hoang
+#!desc=Locket (3 script goc) + YouTube tuy chinh; kiem tra quyen truy cap URL truoc khi su dung
+#!author=Huy Hoang (tong hop); YouTube script: Maasea/sgmodule
+
+[General]
+user-agent = Locket/1.0.0 (iPhone; iOS 26.3; Scale/3.00)
+
+[Rule]
+# YouTube: chan UDP/QUIC tai cac may chu video de cac quy tac HTTPS co the duoc ap dung
+AND,((DOMAIN-SUFFIX,googlevideo.com),(PROTOCOL,UDP)),REJECT
+AND,((DOMAIN,youtubei.googleapis.com),(PROTOCOL,UDP)),REJECT
+
+[Url Rewrite]
+# YouTube: cac quy tac duoc lay tu phan YouTube cua 10in1_Vip_ProMax
+^https?:\/\/[\w-]+\.googlevideo\.com\/(?!(dclk_video_ads|videoplayback\?)).+&oad _ reject-200
+^https?:\/\/(www|s)\.youtube\.com\/api\/stats\/ads _ reject-200
+^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking) _ reject-200
+^https?:\/\/s\.youtube\.com\/api\/stats\/qoe\?adcontext _ reject-200
+(^https?:\/\/[\w-]+\.googlevideo\.com\/(?!dclk_video_ads).+?)&ctier=L(&.+?),ctier,(.+) $1$2$3 302
+
+[Script]
+# ===== Locket: giu nguyen 3 script va script-path cua du an ca nhan =====
+# RevenueCat Response
+revenuecat = type=http-response, pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[^/]+$), script-path=https://raw.githubusercontent.com/nghhoag05-art/Locket-Custom-Personal-huyhoang/main/scripts/locketfix8.js, requires-body=true, max-size=-1, timeout=60
+
+# RevenueCat Request Header
+deleteHeader = type=http-request, pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts|subscribers), script-path=https://raw.githubusercontent.com/nghhoag05-art/Locket-Custom-Personal-huyhoang/main/scripts/header7.js, timeout=60
+
+# Firebase Remote Config
+locket_rc = type=http-response, pattern=^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+, script-path=https://raw.githubusercontent.com/nghhoag05-art/Locket-Custom-Personal-huyhoang/main/scripts/forceGold4.3.js, requires-body=true, max-size=-1, timeout=60
+
+# ===== YouTube: script thay the, do URL goc trong 10in1 da tra ve 404 =====
+# Script do Maasea/sgmodule phat trien (Apache-2.0). Khong bao dam chay voi moi ban Shadowrocket/YouTube.
+youtube.response = type=http-response, pattern=^https:\/\/youtubei\.googleapis\.com\/(youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch|log_event|config))(\?(.*))?$, requires-body=1, max-size=-1, binary-body-mode=1, script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.response.js, argument="{"captionLang":"vi","blockUpload":true,"blockImmersive":true,"blockShorts":false,"debug":false}"
+youtube.request.init = type=http-request, pattern=^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&ack.*, requires-body=1, max-size=-1, binary-body-mode=1, script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.request.js, argument="{"captionLang":"vi"}"
+youtube.request.log_event = type=http-request, pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/log_event, requires-body=1, max-size=-1, binary-body-mode=1, script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.request.js
+
+[Map Local]
+# YouTube: quy tac xu ly initplayback tu file 10in1
+^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad data-type=text data="" status-code=200
+
+[MITM]
+hostname = %APPEND% api.revenuecat.com, firebaseremoteconfig.googleapis.com, *.googlevideo.com, youtubei.googleapis.com, www.youtube.com, s.youtube.com, -redirector*.googlevideo.com
