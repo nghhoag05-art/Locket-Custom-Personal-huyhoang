@@ -45,14 +45,14 @@ if (ua.includes("Locket")) {
             profile_banner: true
         }),
         feature_discovery_popup_config: JSON.stringify({
-            tag: "LOCKET GOLD Dũng Official",
+            tag: "LOCKET GOLD Hoàng Pro",
             tag_gradient: true,
             tag_style: "gold_gradient",
             title: "Đã Kich Hoạt 💛",
             feature_set: [
                 {
-                    title: "Dũng Official ✨",
-                    body: "Zalo 0374441338"
+                    title: "Hoàng Official ✨",
+                    body: "Zalo 0978738782"
                 }
             ],
             primary_button_title: "Xong",
