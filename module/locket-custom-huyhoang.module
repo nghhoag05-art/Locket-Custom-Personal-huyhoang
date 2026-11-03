@@ -1,0 +1,18 @@
+#!name=Locket Custom - Huy Hoang
+#!desc=Du an ca nhan - giu nguyen 3 script, chi thay link tai code
+
+[General]
+user-agent = Locket/1.0.0 (iPhone; iOS 26.3; Scale/3.00)
+
+[Script]
+# RevenueCat Response
+revenuecat = type=http-response, pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[^/]+$), script-path=https://raw.githubusercontent.com/nghhoag05-art/Locket-Custom-Personal-huyhoang/main/scripts/locketfix8.js, requires-body=true, max-size=-1, timeout=60
+
+# RevenueCat Request Header
+deleteHeader = type=http-request, pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts|subscribers), script-path=https://raw.githubusercontent.com/nghhoag05-art/Locket-Custom-Personal-huyhoang/main/scripts/header7.js, timeout=60
+
+# Firebase Remote Config
+locket_rc = type=http-response, pattern=^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+, script-path=https://raw.githubusercontent.com/nghhoag05-art/Locket-Custom-Personal-huyhoang/main/scripts/forceGold4.3.js, requires-body=true, max-size=-1, timeout=60
+
+[MITM]
+hostname = %APPEND%, api.revenuecat.com, firebaseremoteconfig.googleapis.com
