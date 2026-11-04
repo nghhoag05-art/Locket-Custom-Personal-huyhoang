@@ -45,14 +45,14 @@ if (ua.includes("Locket")) {
             profile_banner: true
         }),
         feature_discovery_popup_config: JSON.stringify({
-            tag: "LOCKET GOLD Dũng Official",
+            tag: "LOCKET GOLD Hoàng Pro",
             tag_gradient: true,
             tag_style: "gold_gradient",
             title: "Đã Kich Hoạt 💛",
             feature_set: [
                 {
-                    title: "Dũng Official ✨",
-                    body: "Zalo 0374441338"
+                    title: "Hoàng Official ✨",
+                    body: "Zalo 0978738782"
                 }
             ],
             primary_button_title: "Xong",
@@ -375,6 +375,12 @@ if (ua.includes("Locket")) {
             "good_morning", "goodnight", "ootd", "miss_you", "custom", "phunu_2010", "halloween_2026"
         ]),
         overlay_items: JSON.stringify([
+            {
+                section: "🎨 huyhoang",
+                items: [
+                    { overlay_id: "caption:nho_hoang", source: "remote", caption: { background: { colors: ["#97FFFF", "#FFE4C4"] }, icon: { data: "🥰", type: "emoji" }, max_lines: 1, text: "Nho hoang", text_color: "#FFDBDB", type: "static_content" } },
+                ]
+            },
             {
                 section: "🎨 General",
                 items: [
