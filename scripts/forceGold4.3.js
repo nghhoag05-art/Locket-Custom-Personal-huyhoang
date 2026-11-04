@@ -404,11 +404,10 @@ if (ua.includes("Locket")) {
                 ]
             },
             {
-                section: "🎨 huyhoang💗",
+                section: "🎨 HuyHoang💗",
                 items: [
-                    { overlay_id: "caption:nho_hoang", source: "remote", caption: { background: { colors: ["#97FFFF", "#FFE4C4"] }, icon: { data: "🥰", type: "emoji" }, max_lines: 1, text: "Nhớ Hoàng 💗", text_color: "#9e2024", type: "static_content" } },
-                    { overlay_id: "caption:khanh_ancut", source: "remote", caption: { background: { colors: ["#ba8727", "#ba5827"] }, icon: { data: "💩", type: "emoji" }, max_lines: 1, text: "Khanh ăn cut", text_color: "#1f1919", type: "static_content" } },
-
+                    { overlay_id: "caption:nho_hoang", source: "remote", caption: { background: { colors: ["#97FFFF", "#FFE4C4"] }, icon: { data: "🥰", type: "emoji" }, max_lines: 1, text: "Nhớ Hoàng 💗", text_color: "#9E2024", type: "static_content" } },
+                    { overlay_id: "caption:khanh_ancut", source: "remote", caption: { background: { colors: ["#BA8727", "#BA5827"] }, icon: { data: "💩", type: "emoji" }, max_lines: 1, text: "Khanh ăn cut💩", text_color: "#1F1919", type: "static_content" } },
                 ]
             },
             {
