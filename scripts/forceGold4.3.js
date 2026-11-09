@@ -52,7 +52,8 @@ if (ua.includes("Locket")) {
             feature_set: [
                 {
                     title: "Hoàng Official ✨",
-                    body: "Zalo 0978738782"
+                    body: "Zalo 0978738782",
+                    imageURL: "https://i.postimg.cc/26JD782q/Screenshot-2026-11-10-021543.png"
                 }
             ],
             primary_button_title: "Xong",
@@ -408,6 +409,24 @@ if (ua.includes("Locket")) {
                 items: [
                     { overlay_id: "caption:nho_hoang", source: "remote", caption: { background: { colors: ["#97FFFF", "#FFE4C4"] }, icon: { data: "🥰", type: "emoji" }, max_lines: 1, text: "Nhớ Hoàng 💗", text_color: "#9E2024", type: "static_content" } },
                     { overlay_id: "caption:khanh_ancut", source: "remote", caption: { background: { colors: ["#BA8727", "#BA5827"] }, icon: { data: "💩", type: "emoji" }, max_lines: 1, text: "Khanh ăn cut💩", text_color: "#1F1919", type: "static_content" } },
+                ]
+            },
+            {
+                section: "Bánh sinh nhật Ngọc Trâm",
+                items: [
+                    {
+                        overlay_id: "caption:happy_birthday_ngoc_tram",
+                        source: "remote",
+                        caption: {
+                            background: { colors: ["#FFE3ED", "#E9D8FF", "#FFF0BD"] },
+                            icon: { data: "🎂", type: "emoji" },
+                            max_lines: 2,
+                            text: "Chúc sinh nhật Ngọc Trâm",
+                            localized_text: { en: "Happy birthday, Ngọc Trâm!", vn: "Chúc sinh nhật Ngọc Trâm" },
+                            text_color: "#74425B",
+                            type: "static_content"
+                        }
+                    }
                 ]
             },
             {
