@@ -412,7 +412,7 @@ if (ua.includes("Locket")) {
                 ]
             },
             {
-                section: "Bánh sinh nhật Ngọc Trâm",
+                section: "🎂 Ngọc Trâm",
                 items: [
                     {
                         overlay_id: "caption:happy_birthday_ngoc_tram",
